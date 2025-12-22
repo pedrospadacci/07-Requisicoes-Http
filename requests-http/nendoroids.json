@@ -1,0 +1,39 @@
+{
+  "nendoroids": [
+    {
+      "id": 1,
+      "franchise": "Uma Musume",
+      "character": "Agnes Tachyon"
+    },
+    {
+      "franchise": "Uma Musume",
+      "character": "Manhattan Cafe",
+      "id": 2
+    },
+    {
+      "franchise": "Uma Musume",
+      "character": "Jungle Pocket",
+      "id": 3
+    },
+    {
+      "franchise": "Uma Musume",
+      "character": "Dantsu Flame",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "franchise": "Uma Musume",
+      "character": "Simboli Rudolph"
+    },
+    {
+      "id": 6,
+      "franchise": "Uma Musume",
+      "character": "Oguri Cap"
+    },
+    {
+      "id": 7,
+      "franchise": "Uma Musume",
+      "character": "Narita Top Road"
+    }
+  ]
+}

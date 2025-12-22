@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header">
+    <div class="float-left">
+      <h4>Motos</h4>
+    </div>
+    <div class="float-right">
+      <button type="button" class="btn btn-primary" [routerLink]="['novo']">Nova moto</button>
+      <button type="button" class="btn btn-secondary" (click)="atualizar()">Atualizar</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover" *ngIf="motos$ | async as motos;  else loading">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Motos</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let moto of motos">
+          <td>{{moto.id}}</td>
+          <td>{{moto.brand}}</td>
+          <td>{{moto.model}}</td>
+          <td>
+            <span class="float-right">
+              <button class="btn btn-outline-warning mb-1 btn-sm" (click)="editarMoto(moto.id)">
+                Atualizar
+              </button>
+
+              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="excluirMoto(moto)">
+                Remover
+              </button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #loading>
+      <span>Carregando motos</span>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #deleteModalMoto>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja remover esta moto</p>
+    <button type="button" class="btn btn-default" (click)="confirmarExclusao()">Sim</button>
+    <button type="button" class="btn btn-primary" (click)="negarExclusao()">Não</button>
+  </div>
+</ng-template>

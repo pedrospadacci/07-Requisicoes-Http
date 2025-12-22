@@ -1,0 +1,22 @@
+http://localhost:3000/nendoroids
+
+###
+
+POST http://localhost:3000/nendoroids
+Content-Type: application/json
+
+{
+  "franchise":"Uma Musume",
+  "character":"Dantsu Flame"
+}
+
+
+###
+
+PUT http://localhost:3000/nendoroids/1
+Content-Type: application/json
+
+###
+
+DELETE http://localhost:3000/nendoroids/4
+Content-Type: application/json

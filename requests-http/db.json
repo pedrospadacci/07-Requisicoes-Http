@@ -1,0 +1,32 @@
+{
+  "cursos": [
+    {
+      "nome": "Angular",
+      "id": 1
+    },
+    {
+      "nome": "Java",
+      "id": 2
+    },
+    {
+      "nome": "Angular Material",
+      "id": 3
+    },
+    {
+      "nome": "React",
+      "id": 4
+    },
+    {
+      "nome": "JavaScript",
+      "id": 5
+    },
+    {
+      "nome": "Ruby",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "nome": "Postgree"
+    }
+  ]
+}

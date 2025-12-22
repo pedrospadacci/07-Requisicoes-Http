@@ -1,0 +1,15 @@
+http://localhost:3000/motos
+
+###
+//POST
+
+POST http://localhost:3000/motos
+Content-Type: application/json
+
+{
+  "brand":"Kawasaki",
+  "model":"Ninja 250"
+}
+
+###
+DELETE http://localhost:3000/motos/4

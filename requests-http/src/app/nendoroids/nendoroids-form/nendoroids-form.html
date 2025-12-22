@@ -1,0 +1,48 @@
+<form class="needs-validation" novalidate [formGroup]="fmGroup" style="padding-top: 10px;">
+  <div class="form-row">
+    <div class="col-sm-12">
+      <label for="curso">Nome do Nendorod</label>
+      <input type="text"
+       class="form-control"
+        id="curso"
+         placeholder=""
+          formControlName="character"
+          [ngClass]="{'is-invalid': submetido && temErro('character')}">
+          <div class="invalid-feedback" *ngIf="temErro('character')">
+            <div *ngIf="fmGroup.controls['character'].errors?.['required']">
+              Por favor! Informe um nome para o nendoroid
+            </div>
+            <div *ngIf="fmGroup.controls['character'].errors?.['minlength']">
+              Por favor! No mínimo mais de {{temErro('character')?.['minlength'].requiredLength}} caracteres, caracteres atuais: {{fmGroup.get('character')?.value.length}}
+            </div>
+            <div *ngIf="fmGroup.controls['character'].errors?.['maxlength']">
+              Por favor! No máximo {{temErro('character')?.['maxlength'].requiredLength}} caracteres, caracteres atuais: {{fmGroup.get('character')?.value.length}}
+            </div>
+          </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="curso">Nome da Franquia</label>
+      <input type="text"
+       class="form-control"
+        id="curso"
+         placeholder=""
+          formControlName="franchise"
+          [ngClass]="{'is-invalid': submetido && temErro('franchise')}">
+          <div class="invalid-feedback" *ngIf="temErro('franchise')">
+            <div *ngIf="fmGroup.controls['franchise'].errors?.['required']">
+              Por favor! Informe um nome para a franquia
+            </div>
+            <div *ngIf="fmGroup.controls['franchise'].errors?.['minlength']">
+              Por favor! No mínimo mais de {{temErro('franchise')?.['minlength'].requiredLength}} caracteres, caracteres atuais: {{fmGroup.get('franchise')?.value.length}}
+            </div>
+            <div *ngIf="fmGroup.controls['franchise'].errors?.['maxlength']">
+              Por favor! No máximo {{temErro('franchise')?.['maxlength'].requiredLength}} caracteres, caracteres atuais: {{fmGroup.get('franchise')?.value.length}}
+            </div>
+          </div>
+    </div>
+  </div>
+  <div style="margin: 10px 5px;">
+    <button type="submit" class="btn btn-primary" (click)="submeter()">Salvar</button>
+    <button type="button" class="btn btn-default" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>

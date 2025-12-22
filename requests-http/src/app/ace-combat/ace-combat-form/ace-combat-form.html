@@ -1,0 +1,48 @@
+<form class="needs-validation" novalidate [formGroup]="formGroup" style="padding-top: 10px;">
+  <div class="form-row">
+    <div class="col-sm-12">
+      <label for="titulo">Titulo:</label>
+      <input type="text"
+       class="form-control"
+        id="titulo"
+         placeholder=""
+          formControlName="titulo"
+          [ngClass]="{'is-invalid': submetido && temErro('titulo')}">
+          <div class="invalid-feedback" *ngIf="temErro('titulo')">
+            <div *ngIf="formGroup.controls['titulo'].errors?.['required']">
+              Por favor! Informe um nome para a Marca
+            </div>
+            <div *ngIf="formGroup.controls['titulo'].errors?.['minlength']">
+              Por favor! No mínimo  {{temErro('titulo')?.['minlength'].requiredLength}} caracteres, caracteres atuais: {{formGroup.get('brand')?.value.length}}
+            </div>
+            <div *ngIf="formGroup.controls['titulo'].errors?.['maxlength']">
+              Por favor! No máximo {{temErro('titulo')?.['maxlength'].requiredLength}} caracteres, caracteres atuais: {{formGroup.get('brand')?.value.length}}
+            </div>
+          </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="ano">Ano:</label>
+      <input type="text"
+       class="form-control"
+        id="ano"
+         placeholder=""
+          formControlName="ano"
+          [ngClass]="{'is-invalid': submetido && temErro('ano')}">
+          <div class="invalid-feedback" *ngIf="temErro('ano')">
+            <div *ngIf="formGroup.controls['ano'].errors?.['required']">
+              Por favor! Informe um nome para o Modelo
+            </div>
+            <div *ngIf="formGroup.controls['ano'].errors?.['minlength']">
+              Por favor! No mínimo {{temErro('ano')?.['minlength'].requiredLength}} caracteres, caracteres atuais: {{formGroup.get('ano')?.value.length}}
+            </div>
+            <div *ngIf="formGroup.controls['ano'].errors?.['maxlength']">
+              Por favor! No máximo {{temErro('ano')?.['maxlength'].requiredLength}} caracteres, caracteres atuais: {{formGroup.get('ano')?.value.length}}
+            </div>
+          </div>
+    </div>
+  </div>
+  <div style="margin: 10px 5px;">
+    <button type="submit" class="btn btn-primary" (click)="submeter()">Salvar</button>
+    <button type="button" class="btn btn-default" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>

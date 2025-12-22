@@ -1,0 +1,48 @@
+<form class="needs-validation" novalidate [formGroup]="formGroup" style="padding-top: 10px;">
+  <div class="form-row">
+    <div class="col-sm-12">
+      <label for="curso">Marca:</label>
+      <input type="text"
+       class="form-control"
+        id="curso"
+         placeholder=""
+          formControlName="brand"
+          [ngClass]="{'is-invalid': submetido && temErro('brand')}">
+          <div class="invalid-feedback" *ngIf="temErro('brand')">
+            <div *ngIf="formGroup.controls['brand'].errors?.['required']">
+              Por favor! Informe um nome para a Marca
+            </div>
+            <div *ngIf="formGroup.controls['brand'].errors?.['minlength']">
+              Por favor! No mínimo mais de {{temErro('brand')?.['minlength'].requiredLength}} caracteres, caracteres atuais: {{formGroup.get('brand')?.value.length}}
+            </div>
+            <div *ngIf="formGroup.controls['brand'].errors?.['maxlength']">
+              Por favor! No máximo {{temErro('brand')?.['maxlength'].requiredLength}} caracteres, caracteres atuais: {{formGroup.get('brand')?.value.length}}
+            </div>
+          </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="curso">Modelo:</label>
+      <input type="text"
+       class="form-control"
+        id="curso"
+         placeholder=""
+          formControlName="model"
+          [ngClass]="{'is-invalid': submetido && temErro('model')}">
+          <div class="invalid-feedback" *ngIf="temErro('model')">
+            <div *ngIf="formGroup.controls['model'].errors?.['required']">
+              Por favor! Informe um nome para o Modelo
+            </div>
+            <div *ngIf="formGroup.controls['model'].errors?.['minlength']">
+              Por favor! No mínimo mais de {{temErro('model')?.['minlength'].requiredLength}} caracteres, caracteres atuais: {{formGroup.get('model')?.value.length}}
+            </div>
+            <div *ngIf="formGroup.controls['model'].errors?.['maxlength']">
+              Por favor! No máximo {{temErro('model')?.['maxlength'].requiredLength}} caracteres, caracteres atuais: {{formGroup.get('model')?.value.length}}
+            </div>
+          </div>
+    </div>
+  </div>
+  <div style="margin: 10px 5px;">
+    <button type="submit" class="btn btn-primary" (click)="submeter()">Salvar</button>
+    <button type="button" class="btn btn-default" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>

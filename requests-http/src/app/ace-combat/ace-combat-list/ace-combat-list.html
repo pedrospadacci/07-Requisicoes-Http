@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header">
+    <div class="float-left">
+      <h4>Ace Combats</h4>
+    </div>
+    <div class="float-right">
+      <button type="button" class="btn btn-primary" [routerLink]="['novo']">Novo Ace Combat</button>
+      <button type="button" class="btn btn-secondary" (click)="atualizar()">Atualizar</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover" *ngIf="aceCombats$ | async as aceCombats;  else loading">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Títulos</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aceCombat of aceCombats">
+          <td>{{aceCombat.id}}</td>
+          <td>{{aceCombat.titulo}}</td>
+          <td>{{aceCombat.ano}}</td>
+          <td>
+            <span class="float-right">
+              <button class="btn btn-outline-warning mb-1 btn-sm" (click)="editarAceCombat(aceCombat.id)">
+                Atualizar
+              </button>
+
+              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="excluirAceCombat(aceCombat)">
+                Remover
+              </button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #loading>
+      <span>Carregando títulos</span>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #deleteModalAceAcombat>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja remover este título</p>
+    <button type="button" class="btn btn-default" (click)="confirmarExclusao()">Sim</button>
+    <button type="button" class="btn btn-primary" (click)="negarExclusao()">Não</button>
+  </div>
+</ng-template>

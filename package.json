@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "bootstrap": "^4.6.2",
+    "jquery": "^3.7.1",
+    "ngx-bootstrap": "^20.0.2",
+    "popper.js": "^1.16.1"
+  }
+}

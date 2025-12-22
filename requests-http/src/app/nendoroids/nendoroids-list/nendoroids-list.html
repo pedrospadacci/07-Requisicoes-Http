@@ -1,0 +1,53 @@
+<div class="card">
+  <div class="card-header">
+    <div class="float-left">
+      <h4>Nendoroids</h4>
+    </div>
+    <div class="float-right">
+      <button type="button" class="btn btn-primary" [routerLink]="['novo']">Novo Nendoroid</button>
+    </div>
+    <div class="float-right">
+      <button type="button" class="btn btn-secondary" (click)="atualizar()">Atualizar</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover" *ngIf="nendoroids$ | async as nendos;  else loading">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nendoroids</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nendo of nendos">
+          <td>{{nendo.id}}</td>
+          <td>{{nendo.franchise}}</td>
+          <td>{{nendo.character}}</td>
+          <td>
+            <span class="float-right">
+              <button class="btn btn-outline-warning mb-1 btn-sm" (click)="editarNendo(nendo.id)">
+                Atualizar
+              </button>
+
+              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="excluirNendo(nendo)">
+                Remover
+              </button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #loading>
+      <span>Carregando nendoroids</span>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #deleteModalNendo>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja remover este nendoroid</p>
+    <button type="button" class="btn btn-default" (click)="confirmarExclusao()">Sim</button>
+    <button type="button" class="btn btn-primary" (click)="negarExclusao()">Não</button>
+  </div>
+</ng-template>

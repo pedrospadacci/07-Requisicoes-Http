@@ -1,0 +1,27 @@
+http://localhost:3000/cursos/
+
+
+#####
+
+
+
+POST http://localhost:3000/cursos
+content-type: application/json
+
+{
+    "nome": "Java"
+}
+
+#####
+
+PUT http://localhost:3000/cursos/1
+content-type: application/json
+
+{
+    "nome": "Angular"
+}
+
+###
+
+DELETE http://localhost:3000/cursos/b78f
+content-type: application/json
